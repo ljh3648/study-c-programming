@@ -9,7 +9,7 @@
 void ShowArr(int (*arr)[4], int size);
 void RotationArr(int (*arr)[4], int size);
 
-int main(void){
+int main(void) {
 
     int arr[4][4] = {
         { 1,  2,  3,  4},
@@ -18,19 +18,19 @@ int main(void){
         {13, 14, 15, 16},
     };
 
-    ShowArr(arr, sizeof(arr)/sizeof(arr[0]));
+    ShowArr(arr, sizeof(arr) / sizeof(arr[0]));
 
-    for(int i = 0; i < 3; i++){
-        RotationArr(arr, sizeof(arr)/sizeof(arr[0]));
-        ShowArr(arr, sizeof(arr)/sizeof(arr[0]));
+    for (int i = 0; i < 3; i++) {
+        RotationArr(arr, sizeof(arr) / sizeof(arr[0]));
+        ShowArr(arr, sizeof(arr) / sizeof(arr[0]));
     }
 
     return 0;
 }
 
-void ShowArr(int (*arr)[4], int size){
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+void ShowArr(int (*arr)[4], int size) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             printf("%2d ", arr[i][j]);
         }
         printf("\n");
@@ -38,19 +38,19 @@ void ShowArr(int (*arr)[4], int size){
     printf("\n");
 }
 
-void RotationArr(int (*arr)[4], int size){
+void RotationArr(int (*arr)[4], int size) {
     int temp[size][size];
 
     // 배열 복사
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = arr[i][j];
         }
     }
 
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
-            arr[j][(size-1)-i] = temp[i][j];
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            arr[j][(size - 1) - i] = temp[i][j];
         }
     }
 }
